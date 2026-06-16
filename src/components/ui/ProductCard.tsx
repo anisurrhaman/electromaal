@@ -28,6 +28,9 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
           referrerPolicy="no-referrer"
         />
+        <span className="absolute top-3 right-3 bg-red-600 text-white text-[9px] font-black px-2 py-1 uppercase tracking-wider rounded shadow-sm z-10 font-sans">
+          40% OFF
+        </span>
         {product.stock < 10 && product.stock > 0 && (
           <span className="absolute top-3 left-3 bg-brand-orange text-white text-[9px] font-bold px-2 py-1 uppercase tech-mono">
             Low Stock: {product.stock}

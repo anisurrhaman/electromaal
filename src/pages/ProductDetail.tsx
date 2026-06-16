@@ -229,8 +229,8 @@ export const ProductDetail: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 p-4 md:p-8">
             
             {/* Left Portion: Dynamic Media Gallery */}
-            <div className="lg:col-span-6 space-y-4">
-              <div className="relative aspect-square bg-gray-50 rounded-2xl overflow-hidden border border-gray-155 shadow-inner group">
+            <div className="lg:col-span-5 space-y-4">
+              <div className="relative aspect-square max-h-[380px] md:max-h-[440px] mx-auto bg-gray-50 rounded-2xl overflow-hidden border border-gray-155 shadow-inner group">
                 <img 
                   src={activeImage || product.image} 
                   alt={product.name} 
@@ -267,7 +267,7 @@ export const ProductDetail: React.FC = () => {
               </div>
 
               {/* interactive gallery thumbnails switcher */}
-              <div className="grid grid-cols-5 gap-3">
+              <div className="grid grid-cols-5 gap-3 max-w-[380px] md:max-w-[440px] mx-auto">
                 {[
                   product.image,
                   'https://images.unsplash.com/photo-1555664424-778a1e5e1b48?q=80&w=600',
@@ -298,7 +298,7 @@ export const ProductDetail: React.FC = () => {
             </div>
 
             {/* Right Portion: Interactive Product Info Area */}
-            <div className="lg:col-span-6 flex flex-col justify-between">
+            <div className="lg:col-span-7 flex flex-col justify-between">
               <div>
                 
                 {/* Brand & Social Share */}
@@ -487,34 +487,34 @@ export const ProductDetail: React.FC = () => {
         </div>
 
         {/* Brand Value Propositions Panel */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
-          <div className="bg-white p-4 rounded-2xl border border-gray-150 text-center flex flex-col items-center shadow-xs">
-            <div className="w-10 h-10 rounded-full bg-brand-blue/15 flex items-center justify-center text-brand-blue mb-2.5">
-              <Truck className="w-5 h-5" />
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16" style={{ height: '132px' }}>
+          <div className="bg-white p-2 h-full rounded-2xl border border-gray-150 text-center flex flex-col items-center justify-center shadow-xs overflow-hidden">
+            <div className="w-8 h-8 rounded-full bg-brand-blue/15 flex items-center justify-center text-brand-blue mb-1.5 flex-shrink-0">
+              <Truck className="w-4 h-4" />
             </div>
-            <h4 className="font-bold text-xs text-brand-dark mb-0.5">Dhaka & BD Delivery</h4>
-            <p className="text-[10px] text-gray-400">Next-day delivery inside Dhaka; 2-3 days nationwide.</p>
+            <h4 className="font-bold text-[11px] text-brand-dark mb-0.5 leading-tight">Dhaka & BD Delivery</h4>
+            <p className="text-[9px] text-gray-400 line-clamp-2 leading-tight">Next-day delivery inside Dhaka; 2-3 days nationwide.</p>
           </div>
-          <div className="bg-white p-4 rounded-2xl border border-gray-150 text-center flex flex-col items-center shadow-xs">
-            <div className="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center text-brand-orange mb-2.5">
-              <ShieldCheck className="w-5 h-5" />
+          <div className="bg-white p-2 h-full rounded-2xl border border-gray-150 text-center flex flex-col items-center justify-center shadow-xs overflow-hidden">
+            <div className="w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center text-brand-orange mb-1.5 flex-shrink-0">
+              <ShieldCheck className="w-4 h-4" />
             </div>
-            <h4 className="font-bold text-xs text-brand-dark mb-0.5">100% Original Products</h4>
-            <p className="text-[10px] text-gray-400">Tested and certified directly by corporate distributors.</p>
+            <h4 className="font-bold text-[11px] text-brand-dark mb-0.5 leading-tight">100% Original</h4>
+            <p className="text-[9px] text-gray-400 line-clamp-2 leading-tight">Tested and certified directly by distributors.</p>
           </div>
-          <div className="bg-white p-4 rounded-2xl border border-gray-150 text-center flex flex-col items-center shadow-xs">
-            <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-600 mb-2.5">
-              <RotateCcw className="w-5 h-5" />
+          <div className="bg-white p-2 h-full rounded-2xl border border-gray-150 text-center flex flex-col items-center justify-center shadow-xs overflow-hidden">
+            <div className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-green-600 mb-1.5 flex-shrink-0">
+              <RotateCcw className="w-4 h-4" />
             </div>
-            <h4 className="font-bold text-xs text-brand-dark mb-0.5">7 Days Lab Warranty</h4>
-            <p className="text-[10px] text-gray-400">Worry-free claim for hardware damages on inspection.</p>
+            <h4 className="font-bold text-[11px] text-brand-dark mb-0.5 leading-tight">7 Days Lab Warranty</h4>
+            <p className="text-[9px] text-gray-400 line-clamp-2 leading-tight">Worry-free claims for hardware damages.</p>
           </div>
-          <div className="bg-white p-4 rounded-2xl border border-gray-150 text-center flex flex-col items-center shadow-xs">
-            <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 mb-2.5">
-              <HelpCircle className="w-5 h-5" />
+          <div className="bg-white p-2 h-full rounded-2xl border border-gray-150 text-center flex flex-col items-center justify-center shadow-xs overflow-hidden">
+            <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 mb-1.5 flex-shrink-0">
+              <HelpCircle className="w-4 h-4" />
             </div>
-            <h4 className="font-bold text-xs text-brand-dark mb-0.5">Consultation Support</h4>
-            <p className="text-[10px] text-gray-400">Chat with expert Bangladeshi makers for circuit analysis.</p>
+            <h4 className="font-bold text-[11px] text-brand-dark mb-0.5 leading-tight">Consultation</h4>
+            <p className="text-[9px] text-gray-400 line-clamp-2 leading-tight">Chat with specialist Bangladeshi makers.</p>
           </div>
         </div>
 

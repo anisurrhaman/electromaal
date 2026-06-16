@@ -109,8 +109,12 @@ export const Navbar: React.FC = () => {
           <div className="flex flex-col space-y-4 font-bold text-sm tracking-widest tech-mono uppercase">
             <Link to="/" onClick={() => setIsMenuOpen(false)} className="hover:text-brand-orange transition-colors">Home</Link>
             <Link to="/shop" onClick={() => setIsMenuOpen(false)} className="hover:text-brand-orange transition-colors">Shop All</Link>
-            <Link to="/shop?category=Arduino" onClick={() => setIsMenuOpen(false)} className="hover:text-brand-orange transition-colors">Arduino</Link>
-            <Link to="/shop?category=Power" onClick={() => setIsMenuOpen(false)} className="hover:text-brand-orange transition-colors">Power Solutions</Link>
+            <Link to="/shop?category=ICs%20%26%20Semiconductors" onClick={() => setIsMenuOpen(false)} className="text-gray-300 hover:text-brand-orange transition-colors">ICs & Semiconductors</Link>
+            <Link to="/shop?category=Power%20Modules" onClick={() => setIsMenuOpen(false)} className="text-gray-300 hover:text-brand-orange transition-colors">Power Modules</Link>
+            <Link to="/shop?category=Battery%20%26%20BMS" onClick={() => setIsMenuOpen(false)} className="text-gray-300 hover:text-brand-orange transition-colors">Battery & BMS</Link>
+            <Link to="/shop?category=Tools%20%26%20Equipment" onClick={() => setIsMenuOpen(false)} className="text-gray-300 hover:text-brand-orange transition-colors">Tools & Equipment</Link>
+            <Link to="/shop?category=Passives" onClick={() => setIsMenuOpen(false)} className="text-gray-300 hover:text-brand-orange transition-colors">Passives</Link>
+            <Link to="/shop?category=Electromaal%20Labs" onClick={() => setIsMenuOpen(false)} className="text-gray-300 hover:text-brand-orange transition-colors">Electromaal Labs</Link>
             <Link to="/contact" onClick={() => setIsMenuOpen(false)} className="hover:text-brand-orange transition-colors">Lab Support</Link>
           </div>
           <div className="pt-6 border-t border-white/10">
@@ -124,13 +128,15 @@ export const Navbar: React.FC = () => {
       {/* Desktop Category Bar */}
       <div className="hidden md:block bg-gray-50 border-t border-gray-100">
         <div className="container mx-auto px-4 py-2">
-          <div className="flex space-x-8 text-sm font-medium">
+          <div className="flex space-x-6 text-xs font-semibold tech-mono uppercase tracking-wider">
             <Link to="/shop" className="hover:text-brand-blue transition-colors">All Categories</Link>
-            <Link to="/shop?category=Smartphones" className="hover:text-brand-blue transition-colors">Smartphones</Link>
-            <Link to="/shop?category=Laptops" className="hover:text-brand-blue transition-colors">Laptops</Link>
-            <Link to="/shop?category=Audio" className="hover:text-brand-blue transition-colors">Audio</Link>
-            <Link to="/shop?category=Smart Home" className="hover:text-brand-blue transition-colors">Smart Home</Link>
-            <Link to="/contact" className="hover:text-brand-blue transition-colors">Help Center</Link>
+            <Link to="/shop?category=ICs%20%26%20Semiconductors" className="hover:text-brand-blue transition-colors">ICs & Semiconductors</Link>
+            <Link to="/shop?category=Passives" className="hover:text-brand-blue transition-colors">Passives</Link>
+            <Link to="/shop?category=Power%20Modules" className="hover:text-brand-blue transition-colors">Power Modules</Link>
+            <Link to="/shop?category=Battery%20%26%20BMS" className="hover:text-brand-blue transition-colors">Battery & BMS</Link>
+            <Link to="/shop?category=Tools%20%26%20Equipment" className="hover:text-brand-blue transition-colors">Tools & Equipment</Link>
+            <Link to="/shop?category=Electromaal%20Labs" className="hover:text-brand-blue transition-colors">Electromaal Labs</Link>
+            <Link to="/contact" className="hover:text-brand-blue border-l pl-6 border-gray-200 normal-case tracking-normal">Help Center</Link>
           </div>
         </div>
       </div>
