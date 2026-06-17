@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { ArrowRight, Truck, ShieldCheck, Zap, Star, Sparkles, Battery, Cpu, Wrench, Layers } from 'lucide-react';
+import { ArrowRight, Truck, ShieldCheck, Zap, Star, Sparkles, Battery, Cpu, Wrench, Layers, ChevronDown } from 'lucide-react';
 import { MOCK_PRODUCTS } from '../constants';
 import { ProductCard } from '../components/ui/ProductCard';
 
@@ -12,6 +12,16 @@ export const Home: React.FC = () => {
   const hotDealsProducts = MOCK_PRODUCTS.slice(4, 10);
 
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [openCategories, setOpenCategories] = useState<Record<number, boolean>>({
+    0: true, // Keep first category open by default
+  });
+
+  const toggleCategory = (idx: number) => {
+    setOpenCategories(prev => ({
+      ...prev,
+      [idx]: !prev[idx]
+    }));
+  };
 
   const slides = [
     {
@@ -95,31 +105,39 @@ export const Home: React.FC = () => {
     <div className="container mx-auto px-4 py-8">
       <div className="flex flex-col lg:flex-row gap-8">
         {/* Left Sidebar: Categories */}
-        <aside className="w-full lg:w-64 flex-shrink-0 hidden lg:block">
-          <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm">
+        <aside className="w-full lg:w-[180px] flex-shrink-0 hidden lg:block" style={{ width: '180px' }}>
+          <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm" style={{ width: '180px' }}>
             <div className="bg-brand-blue text-brand-black px-5 py-4 font-extrabold flex items-center tracking-wider text-xs uppercase">
               <Zap className="w-4 h-4 mr-2" />
               Categories Matrix
             </div>
             <div className="divide-y divide-gray-100">
-              {categories.map((cat, idx) => (
-                <div key={idx} className="p-4 group cursor-pointer hover:bg-gray-50/50 transition-colors">
-                  <h3 className="font-bold text-xs text-brand-dark uppercase tracking-wider group-hover:text-brand-blue flex justify-between items-center transition-colors">
-                    {cat.name}
-                    <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all text-brand-blue" />
-                  </h3>
-                  <ul className="mt-2 space-y-1 pl-1">
-                    {cat.sub.map((sub, sIdx) => (
-                      <li key={sIdx}>
-                        <Link to={`/shop?category=${sub}`} className="text-xs text-gray-500 hover:text-brand-orange transition-colors flex items-center">
-                          <span className="w-1 h-1 rounded-full bg-gray-300 mr-1.5 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                          {sub}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
+              {categories.map((cat, idx) => {
+                const isOpen = !!openCategories[idx];
+                return (
+                  <div key={idx} className="p-4 hover:bg-gray-50/50 transition-colors">
+                    <button 
+                      onClick={() => toggleCategory(idx)}
+                      className="w-full text-left font-bold text-xs text-brand-dark uppercase tracking-wider hover:text-brand-blue flex justify-between items-center transition-colors focus:outline-none"
+                    >
+                      <span>{cat.name}</span>
+                      <ChevronDown className={`w-3.5 h-3.5 text-gray-400 transition-transform duration-200 ${isOpen ? 'rotate-180 text-brand-blue' : ''}`} />
+                    </button>
+                    <div className={`overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-40 mt-3 opacity-100' : 'max-h-0 opacity-0'}`}>
+                      <ul className="space-y-1.5 pl-1.5">
+                        {cat.sub.map((sub, sIdx) => (
+                          <li key={sIdx}>
+                            <Link to={`/shop?category=${sub}`} className="text-xs text-gray-500 hover:text-brand-orange transition-colors flex items-center">
+                              <span className="w-1 h-1 rounded-full bg-gray-300 mr-1.5"></span>
+                              {sub}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </aside>

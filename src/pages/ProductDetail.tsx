@@ -316,31 +316,7 @@ export const ProductDetail: React.FC = () => {
                   {product.name}
                 </h1>
 
-                {/* Rating line */}
-                <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 mt-3">
-                  <div className="flex text-amber-500">
-                    {[1, 2, 3, 4, 5].map((starIdx) => (
-                      <Star 
-                        key={starIdx} 
-                        className={cn(
-                          "w-4 h-4",
-                          starIdx <= Math.floor(product.rating) ? "fill-amber-400 text-amber-400" : "text-gray-200"
-                        )} 
-                      />
-                    ))}
-                  </div>
-                  <span className="text-xs font-bold text-gray-500">
-                    {product.rating} <span className="text-gray-300 font-normal">({product.reviews} reviews)</span>
-                  </span>
-                  
-                  <span className="text-gray-300 hidden sm:inline">|</span>
-                  
-                  {/* Stock active tag with pulse dot */}
-                  <div className="flex items-center gap-1.5 bg-green-50 text-green-700 px-2 py-0.5 rounded-md text-xs font-semibold">
-                    <span className="w-1.5 h-1.5 rounded-full bg-green-600 animate-pulse"></span>
-                    <span>{product.stock > 0 ? `In Stock (${product.stock} units)` : 'Out of Stock'}</span>
-                  </div>
-                </div>
+
 
                 {/* Gorgeous Price Display Area */}
                 <div className="mt-6 p-4 md:p-5 bg-gradient-to-r from-gray-50 to-white border border-gray-150 rounded-2xl flex flex-col justify-center">

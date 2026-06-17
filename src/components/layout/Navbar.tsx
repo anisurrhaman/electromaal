@@ -128,15 +128,22 @@ export const Navbar: React.FC = () => {
       {/* Desktop Category Bar */}
       <div className="hidden md:block bg-gray-50 border-t border-gray-100">
         <div className="container mx-auto px-4 py-2">
-          <div className="flex space-x-6 text-xs font-semibold tech-mono uppercase tracking-wider" style={{ color: '#1E3A8A' }}>
+          <div className="flex flex-wrap items-center space-x-4 text-xs font-semibold tech-mono uppercase tracking-wider" style={{ color: '#1E3A8A' }}>
             <Link to="/shop" className="hover:text-brand-blue transition-colors">All Categories</Link>
+            <span className="text-gray-300 font-light select-none">|</span>
             <Link to="/shop?category=ICs%20%26%20Semiconductors" className="hover:text-brand-blue transition-colors">ICs & Semiconductors</Link>
+            <span className="text-gray-300 font-light select-none">|</span>
             <Link to="/shop?category=Passives" className="hover:text-brand-blue transition-colors">Passives</Link>
+            <span className="text-gray-300 font-light select-none">|</span>
             <Link to="/shop?category=Power%20Modules" className="hover:text-brand-blue transition-colors">Power Modules</Link>
+            <span className="text-gray-300 font-light select-none">|</span>
             <Link to="/shop?category=Battery%20%26%20BMS" className="hover:text-brand-blue transition-colors">Battery & BMS</Link>
+            <span className="text-gray-300 font-light select-none">|</span>
             <Link to="/shop?category=Tools%20%26%20Equipment" className="hover:text-brand-blue transition-colors">Tools & Equipment</Link>
+            <span className="text-gray-300 font-light select-none">|</span>
             <Link to="/shop?category=Electromaal%20Labs" className="hover:text-brand-blue transition-colors">Electromaal Labs</Link>
-            <Link to="/contact" className="hover:text-brand-blue border-l pl-6 border-gray-200 normal-case tracking-normal">Help Center</Link>
+            <span className="text-gray-300 font-light select-none">|</span>
+            <Link to="/contact" className="hover:text-brand-blue normal-case tracking-normal">Help Center</Link>
           </div>
         </div>
       </div>
