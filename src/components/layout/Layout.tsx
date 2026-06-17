@@ -2,6 +2,7 @@ import React from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import { Navbar } from './Navbar';
 import { Footer } from './Footer';
+import { CartDrawer } from '../ui/CartDrawer';
 import { useEffect } from 'react';
 
 export const Layout: React.FC = () => {
@@ -15,6 +16,7 @@ export const Layout: React.FC = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
+      <CartDrawer />
       <main className="flex-grow">
         <Outlet />
       </main>
