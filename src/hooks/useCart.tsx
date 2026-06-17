@@ -19,8 +19,6 @@ interface CartContextType {
   itemCount: number;
   toasts: Toast[];
   removeToast: (id: string) => void;
-  isCartOpen: boolean;
-  setCartOpen: (open: boolean) => void;
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -28,44 +26,9 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [cart, setCart] = useState<CartItem[]>(() => {
     const savedCart = localStorage.getItem('electromaal_cart');
-    if (savedCart) {
-      const parsed = JSON.parse(savedCart);
-      if (parsed && parsed.length > 0) return parsed;
-    }
-    // Return requested 2 dummy items by default
-    return [
-      {
-        id: 'dummy-1',
-        name: '65W Type-C Cable',
-        description: 'Elite heavy-duty charging cable with digital power reading display and silicon strapping.',
-        price: 450,
-        category: 'Cables',
-        image: 'https://images.unsplash.com/photo-1589615224936-acc4b0959c99?q=80&w=300',
-        rating: 4.8,
-        reviews: 35,
-        stock: 50,
-        brand: 'Baseus Volt',
-        specs: { wattage: '65W' },
-        quantity: 1
-      },
-      {
-        id: 'dummy-2',
-        name: 'Wireless Mic',
-        description: 'Dual channel wireless microphone system with modern noise cancellation chips and fast charging case.',
-        price: 2800,
-        category: 'Mics',
-        image: 'https://images.unsplash.com/photo-1590602847861-f357a9332bbc?q=80&w=300',
-        rating: 4.9,
-        reviews: 21,
-        stock: 12,
-        brand: 'Rode Audio',
-        specs: {},
-        quantity: 1
-      }
-    ];
+    return savedCart ? JSON.parse(savedCart) : [];
   });
   const [toasts, setToasts] = useState<Toast[]>([]);
-  const [isCartOpen, setCartOpen] = useState(false);
 
   useEffect(() => {
     localStorage.setItem('electromaal_cart', JSON.stringify(cart));
@@ -93,10 +56,6 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
       }
       return [...prevCart, { ...product, quantity }];
     });
-    
-    // Slide out the cart drawer when user adds a component
-    setCartOpen(true);
-
     addToast(
       quantity > 1 
         ? `Added ${quantity}x "${product.name}" to Lab Cart` 
@@ -129,7 +88,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   return (
     <CartContext.Provider
-      value={{ cart, addToCart, removeFromCart, updateQuantity, clearCart, cartTotal, itemCount, toasts, removeToast, isCartOpen, setCartOpen }}
+      value={{ cart, addToCart, removeFromCart, updateQuantity, clearCart, cartTotal, itemCount, toasts, removeToast }}
     >
       {children}
 

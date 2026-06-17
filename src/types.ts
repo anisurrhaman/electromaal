@@ -14,13 +14,6 @@ export interface Product {
   reviews: number;
   stock: number;
   isFeatured?: boolean;
-  brand?: string;
-  badge?: 'new' | 'discount' | '';
-  discountPercent?: number;
-  specs?: {
-    wattage?: '20W' | '65W' | '100W' | string;
-    [key: string]: any;
-  };
 }
 
 export interface CartItem extends Product {
