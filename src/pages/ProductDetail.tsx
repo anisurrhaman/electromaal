@@ -204,11 +204,11 @@ export const ProductDetail: React.FC = () => {
   };
 
   return (
-    <div className="bg-gray-50/70 min-h-screen pt-6 pb-24 md:py-10 font-sans text-gray-800">
-      <div className="container mx-auto px-4">
+    <div className="bg-gray-50/70 min-h-screen pb-24 md:pb-10 font-sans text-gray-800" style={{ paddingTop: '15px' }}>
+      <div className="container mx-auto px-4" style={{ width: '1420px', maxWidth: '100%' }}>
         
         {/* Dynamic Breadcrumbs */}
-        <nav className="flex items-center text-xs text-gray-500 mb-6 bg-white p-3 rounded-xl border border-gray-100 shadow-xs overflow-x-auto whitespace-nowrap scrollbar-none">
+        <nav className="flex items-center text-xs text-gray-500 bg-white p-3 rounded-xl border border-gray-100 shadow-xs overflow-x-auto whitespace-nowrap scrollbar-none mx-auto" style={{ width: '1400px', maxWidth: '100%', marginBottom: '13px' }}>
           <Link to="/" className="hover:text-brand-blue font-medium transition-colors flex items-center">
             Home
           </Link>
@@ -225,8 +225,8 @@ export const ProductDetail: React.FC = () => {
         </nav>
 
         {/* Main Product Presentation Card */}
-        <div className="bg-white rounded-3xl border border-gray-200/80 shadow-sm overflow-hidden mb-12">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 p-4 md:p-8">
+        <div className="bg-white rounded-3xl border border-gray-200/80 shadow-sm overflow-hidden mx-auto" style={{ width: '1400px', maxWidth: '100%', marginBottom: '20px' }}>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 p-4 md:p-8" style={{ paddingBottom: '32px' }}>
             
             {/* Left Portion: Dynamic Media Gallery */}
             <div className="lg:col-span-5 space-y-4">
@@ -298,32 +298,21 @@ export const ProductDetail: React.FC = () => {
             </div>
 
             {/* Right Portion: Interactive Product Info Area */}
-            <div className="lg:col-span-7 flex flex-col justify-between">
+            <div className="lg:col-span-7 flex flex-col justify-between relative">
               <div>
-                
-                {/* Brand & Social Share */}
-                <div className="flex items-center justify-between pb-3 border-b border-gray-100">
-                  <div className="flex items-center gap-1.5">
-                    <span className="px-2.5 py-1 bg-brand-blue/10 text-brand-blue text-[10px] font-extrabold uppercase tracking-widest rounded-md tech-mono">
-                      {product.category}
-                    </span>
-                    <span className="text-[10px] font-semibold text-gray-400 tech-mono">
-                      SKU: EM-2026-0{product.id}
-                    </span>
-                  </div>
-                  <div className="flex gap-2">
-                    <button 
-                      onClick={handleShareClick}
-                      className="p-1.5 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-lg transition-colors" 
-                      title="Share product with builders"
-                    >
-                      <Share2 className="w-4 h-4" />
-                    </button>
-                  </div>
+                {/* Share Button (absolute positioned, eliminating extra blank rows/spacing) */}
+                <div className="absolute top-0 right-0 z-10">
+                  <button 
+                    onClick={handleShareClick}
+                    className="p-1.5 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-lg transition-colors" 
+                    title="Share product with builders"
+                  >
+                    <Share2 className="w-4 h-4" />
+                  </button>
                 </div>
 
                 {/* Title */}
-                <h1 className="text-2xl md:text-3xl font-display font-black text-brand-dark mt-4 tracking-tight leading-tight uppercase">
+                <h1 className="text-2xl md:text-3xl font-display font-black text-brand-dark mt-0 pr-8 tracking-tight leading-tight uppercase">
                   {product.name}
                 </h1>
 
@@ -426,7 +415,7 @@ export const ProductDetail: React.FC = () => {
                       navigate('/checkout');
                     }}
                     disabled={product.stock === 0}
-                    className="flex-1 px-6 py-3.5 bg-brand-orange text-brand-black font-extrabold rounded-xl hover:bg-orange-400 active:scale-98 transition-all uppercase tracking-wide text-xs text-center shadow-lg shadow-brand-orange/10"
+                    className="flex-1 px-6 py-3.5 bg-brand-orange text-brand-black font-extrabold rounded-xl hover:bg-orange-400 hover:scale-[1.02] hover:-translate-y-0.5 hover:shadow-xl hover:shadow-brand-orange/30 active:scale-98 transition-all duration-300 uppercase tracking-wide text-xs text-center shadow-lg shadow-brand-orange/10"
                   >
                     Buy Now
                   </button>
@@ -487,29 +476,29 @@ export const ProductDetail: React.FC = () => {
         </div>
 
         {/* Brand Value Propositions Panel */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16" style={{ height: '132px' }}>
-          <div className="bg-white p-2 h-full rounded-2xl border border-gray-150 text-center flex flex-col items-center justify-center shadow-xs overflow-hidden">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mx-auto" style={{ width: '1400px', maxWidth: '100%', height: '100px', marginBottom: '20px', marginRight: '0px' }}>
+          <div className="bg-white p-2 h-full rounded-2xl border border-gray-150 text-center flex flex-col items-center justify-center shadow-xs overflow-hidden" style={{ width: '355px', height: '100px', maxWidth: '100%' }}>
             <div className="w-8 h-8 rounded-full bg-brand-blue/15 flex items-center justify-center text-brand-blue mb-1.5 flex-shrink-0">
               <Truck className="w-4 h-4" />
             </div>
             <h4 className="font-bold text-[11px] text-brand-dark mb-0.5 leading-tight">Dhaka & BD Delivery</h4>
             <p className="text-[9px] text-gray-400 line-clamp-2 leading-tight">Next-day delivery inside Dhaka; 2-3 days nationwide.</p>
           </div>
-          <div className="bg-white p-2 h-full rounded-2xl border border-gray-150 text-center flex flex-col items-center justify-center shadow-xs overflow-hidden">
+          <div className="bg-white p-2 h-full rounded-2xl border border-gray-150 text-center flex flex-col items-center justify-center shadow-xs overflow-hidden" style={{ height: '100px' }}>
             <div className="w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center text-brand-orange mb-1.5 flex-shrink-0">
               <ShieldCheck className="w-4 h-4" />
             </div>
             <h4 className="font-bold text-[11px] text-brand-dark mb-0.5 leading-tight">100% Original</h4>
             <p className="text-[9px] text-gray-400 line-clamp-2 leading-tight">Tested and certified directly by distributors.</p>
           </div>
-          <div className="bg-white p-2 h-full rounded-2xl border border-gray-150 text-center flex flex-col items-center justify-center shadow-xs overflow-hidden">
+          <div className="bg-white p-2 h-full rounded-2xl border border-gray-150 text-center flex flex-col items-center justify-center shadow-xs overflow-hidden" style={{ height: '100px' }}>
             <div className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-green-600 mb-1.5 flex-shrink-0">
               <RotateCcw className="w-4 h-4" />
             </div>
             <h4 className="font-bold text-[11px] text-brand-dark mb-0.5 leading-tight">7 Days Lab Warranty</h4>
             <p className="text-[9px] text-gray-400 line-clamp-2 leading-tight">Worry-free claims for hardware damages.</p>
           </div>
-          <div className="bg-white p-2 h-full rounded-2xl border border-gray-150 text-center flex flex-col items-center justify-center shadow-xs overflow-hidden">
+          <div className="bg-white p-2 h-full rounded-2xl border border-gray-150 text-center flex flex-col items-center justify-center shadow-xs overflow-hidden" style={{ height: '100px' }}>
             <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 mb-1.5 flex-shrink-0">
               <HelpCircle className="w-4 h-4" />
             </div>
@@ -519,7 +508,7 @@ export const ProductDetail: React.FC = () => {
         </div>
 
         {/* Tab-driven Specifications, Description, Customer Reviews Matrix */}
-        <div className="bg-white rounded-3xl border border-gray-200/85 shadow-sm p-4 md:p-8 mb-16">
+        <div className="bg-white rounded-3xl border border-gray-200/85 shadow-sm p-4 md:p-8 mb-16 mx-auto" style={{ width: '1400px', maxWidth: '100%' }}>
           <div className="flex border-b border-gray-150 overflow-x-auto whitespace-nowrap gap-6 md:gap-10 scrollbar-none mb-6">
             <button 
               onClick={() => setActiveTab('description')}

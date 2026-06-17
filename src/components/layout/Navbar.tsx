@@ -128,7 +128,7 @@ export const Navbar: React.FC = () => {
       {/* Desktop Category Bar */}
       <div className="hidden md:block bg-gray-50 border-t border-gray-100">
         <div className="container mx-auto px-4 py-2">
-          <div className="flex space-x-6 text-xs font-semibold tech-mono uppercase tracking-wider">
+          <div className="flex space-x-6 text-xs font-semibold tech-mono uppercase tracking-wider" style={{ color: '#1E3A8A' }}>
             <Link to="/shop" className="hover:text-brand-blue transition-colors">All Categories</Link>
             <Link to="/shop?category=ICs%20%26%20Semiconductors" className="hover:text-brand-blue transition-colors">ICs & Semiconductors</Link>
             <Link to="/shop?category=Passives" className="hover:text-brand-blue transition-colors">Passives</Link>
